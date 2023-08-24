@@ -1,0 +1,242 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+:root{
+    --blue:blue;
+    --main-color: #2980b9;
+    --red: red;
+    --light-color: #777;
+    --light-bg: rgb(238, 238, 238);
+    --black: #2c3e50;
+    --white: #fff;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: .1rem solid rgba(0, 0, 0, .2);
+    
+}
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+nav{
+    background-color: cornflowerblue;
+    height: 80px;
+    width: 100%; 
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul{
+   display: flex;
+   list-style: none;
+}
+label.logo{
+    color: white;
+    font-size:35px ;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px ;
+    margin: 0 5px;
+}
+nav ul li a{
+    color:white;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+a .active,
+a:hover{
+    background-color:var(--blue);
+    transition: .9s;
+}
+.checkbox{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    cursor: pointer;
+    margin-right: 40px;
+    display: none;
+
+}
+.checkbtn{
+    color: white;
+    position: absolute;
+    right: 40px;
+    font-size: 30px;
+    margin-top: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+#check{
+    display: none;
+}
+
+.btn{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0.6rem 1.3rem;
+    border-radius: 20px;
+}
+img{
+    max-width: 100%;
+}
+.wrapper{
+    display: grid;
+    gap: 50px;
+
+}
+
+.top-container{
+   margin-top: 80px;
+   display: grid;
+   grid-gap:5px;
+   grid-template-areas: 'showcase showcase top-box-a'
+                        'showcase showcase top-box-b';
+}
+.showcase{
+    grid-area: showcase;
+    min-height: 400px;
+    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)),url(/photo.avif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    justify-content: center;
+    box-shadow: var(--box-shadow); 
+}
+.showcase h1{
+   font-size: 4rem;
+   margin-bottom: 0;
+   color: var(--white);
+}
+.showcase p{
+   font-size: 1.2rem;
+   line-height: 2rem;
+   font-weight: normal;
+   margin-top: 0;
+   color: var(--white);
+}
+.top-box{
+    background: var(--white);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border:2px solid white;
+    box-shadow: var(--box-shadow);
+    padding: 1.9rem;
+    margin: 10px;
+}
+.top-box.student{
+    font-size: 1.5rem;
+
+}
+.top-box-a{
+    grid-area: top-box-a;
+}
+.top-box-b{
+    grid-area: top-box-b;
+}
+
+
+
+
+
+
+@media (max-width:952px){
+/*navbar for tablet*/
+
+    #check:checked ~ .checkbtn i:before{
+        content: "\f00d";
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+    nav ul{
+        position: fixed;
+        top: 80px;
+        left:-100%;
+        background-color: #111;
+        height: 100vh;
+        width: 100%;
+        display: block;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    .checkbtn{
+        display: block;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+
+    .showcase h1{
+        font-size: 2.5rem;
+    }
+    .top-container{
+        grid-template-areas: 'showcase showcase'
+                            'top-box-a top-box-b'
+    }
+}
+@media(max-width:858px){
+
+    nav ul{
+        display: block;
+    }
+    
+    .checkbtn{
+        display: block ;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    a:hover,
+    a.active{
+        background-color: none;
+        color: #0082e6;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    .top-container{
+        grid-template-areas: 'showcase '
+                            'top-box-a'
+                             'top-box-b';
+    }
+   
+}
